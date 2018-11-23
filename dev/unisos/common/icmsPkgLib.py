@@ -89,6 +89,7 @@ G.icmCmndsLibsAppend = __file__
 ####+END:
 
 from bisos.common import serviceObject
+from unisos.marme import marmePkgThis
 
 
 ####+BEGIN: bx:dblock:python:section :title "Library Description (Overview)"
@@ -535,12 +536,21 @@ def examples_pkgInfoPars():
 def examples_pkgInfoParsFull(
     icmsPkgName,
     icmsPkgInfoBaseDir=None,
+    icmsPkgModuleBaseDir=None,        
     icmsPkgControlBaseDir=None,
     icmsPkgRunBaseDir=None,
 ):
     """
 ** Auxiliary examples to be commonly used.
 """
+    
+    icm.cmndExampleMenuChapter(' =Pkg/Module BaseDirs=  *Admin Panel*')
+
+    print("{icmsPkgInfoBaseDir}  # pkgInfo/fp/icmsPkgName ## Rest is obsolete".format(icmsPkgInfoBaseDir=icmsPkgInfoBaseDir))
+    print("{icmsPkgModuleBaseDir} #  admin,inputs".format(icmsPkgModuleBaseDir=icmsPkgModuleBaseDir)) 
+    print("{panel}".format(panel=os.path.join(icmsPkgModuleBaseDir, "admin", "Panel.org")))
+        
+    
     icm.cmndExampleMenuChapter(' =FP Values=  *pkgInfo Get Parameters*')
 
     cmndName = "pkgInfoParsGet" ; cmndArgs = "" ;
@@ -551,83 +561,83 @@ def examples_pkgInfoParsFull(
     # menuLine = """{cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
     # icm.cmndExampleMenuItem(menuLine, verbosity='none')
 
-    icm.cmndExampleMenuChapter(' =FP Values=  *PkgInfo Defaults ParsSet  --*')
+    # icm.cmndExampleMenuChapter(' =FP Values=  *PkgInfo Defaults ParsSet  --*')
 
-    cmndName = "pkgInfoParsDefaultsSet" ; cmndArgs = "bisosPolicy" ;
-    cps = collections.OrderedDict() ; cps['icmsPkgName'] = icmsPkgName ; cps['icmsPkgControlBaseDir'] = icmsPkgControlBaseDir ; cps['icmsPkgInfoBaseDir'] = icmsPkgInfoBaseDir 
-    icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='little')
+    # cmndName = "pkgInfoParsDefaultsSet" ; cmndArgs = "bisosPolicy" ;
+    # cps = collections.OrderedDict() ; cps['icmsPkgName'] = icmsPkgName ; cps['icmsPkgControlBaseDir'] = icmsPkgControlBaseDir ; cps['icmsPkgInfoBaseDir'] = icmsPkgInfoBaseDir 
+    # icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='little')
     
-    cmndName = "pkgInfoParsDefaultsSet" ; cmndArgs = "bxoPolicy" ;
-    cps = collections.OrderedDict() ; cps['icmsPkgName'] = icmsPkgName ; cps['icmsPkgControlBaseDir'] = icmsPkgControlBaseDir 
-    icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='little')
+    # cmndName = "pkgInfoParsDefaultsSet" ; cmndArgs = "bxoPolicy" ;
+    # cps = collections.OrderedDict() ; cps['icmsPkgName'] = icmsPkgName ; cps['icmsPkgControlBaseDir'] = icmsPkgControlBaseDir 
+    # icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='little')
     
-    cmndName = "pkgInfoParsDefaultsSet" ; cmndArgs = "runBaseDirPolicy" ;
-    cps = collections.OrderedDict() ; cps['icmsPkgName'] = icmsPkgName
-    cps['icmsPkgControlBaseDir'] = icmsPkgControlBaseDir ; cps['icmsPkgRunBaseDir'] = icmsPkgRunBaseDir
-    icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='little')
+    # cmndName = "pkgInfoParsDefaultsSet" ; cmndArgs = "runBaseDirPolicy" ;
+    # cps = collections.OrderedDict() ; cps['icmsPkgName'] = icmsPkgName
+    # cps['icmsPkgControlBaseDir'] = icmsPkgControlBaseDir ; cps['icmsPkgRunBaseDir'] = icmsPkgRunBaseDir
+    # icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='little')
     
-    cmndName = "pkgInfoParsDefaultsSet" ; cmndArgs = "debianPolicy" ;
-    cps = collections.OrderedDict() ; cps['icmsPkgName'] = icmsPkgName 
-    icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='little')
+    # cmndName = "pkgInfoParsDefaultsSet" ; cmndArgs = "debianPolicy" ;
+    # cps = collections.OrderedDict() ; cps['icmsPkgName'] = icmsPkgName 
+    # icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='little')
     
-    cmndName = "pkgInfoParsDefaultsSet" ; cmndArgs = "centosPolicy" ;
-    cps = collections.OrderedDict() ; cps['icmsPkgName'] = icmsPkgName 
-    icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='little')
+    # cmndName = "pkgInfoParsDefaultsSet" ; cmndArgs = "centosPolicy" ;
+    # cps = collections.OrderedDict() ; cps['icmsPkgName'] = icmsPkgName 
+    # icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='little')
     
 
-    icm.cmndExampleMenuChapter(' =FP Values=  *PkgInfo ParsSet -- Set Parameters Explicitly*')
+    # icm.cmndExampleMenuChapter(' =FP Values=  *PkgInfo ParsSet -- Set Parameters Explicitly*')
 
-    cmndAction = " -i pkgInfoParsSet" ; cmndArgs = ""
-    menuLine = """--icmsPkgName="pkgName" {cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
-    icm.cmndExampleMenuItem(menuLine, icmWrapper="echo", verbosity='none')
+    # cmndAction = " -i pkgInfoParsSet" ; cmndArgs = ""
+    # menuLine = """--icmsPkgName="pkgName" {cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
+    # icm.cmndExampleMenuItem(menuLine, icmWrapper="echo", verbosity='none')
 
-    cmndAction = " -i pkgInfoParsSet" ; cmndArgs = ""
-    menuLine = """--icmsPkgControlBaseDir="path"  {cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
-    icm.cmndExampleMenuItem(menuLine, icmWrapper="echo", verbosity='none')
+    # cmndAction = " -i pkgInfoParsSet" ; cmndArgs = ""
+    # menuLine = """--icmsPkgControlBaseDir="path"  {cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
+    # icm.cmndExampleMenuItem(menuLine, icmWrapper="echo", verbosity='none')
 
-    cmndAction = " -i pkgInfoParsSet" ; cmndArgs = ""
-    varPath = os.path.join(icmsRunEnvBaseDir_obtain(), "var", icmsPkgName_fpObtain(
-        icmsPkgInfoBaseDir=icmsPkgInfoBaseDir))
-    menuLine = """--icmsPkgVarBaseDir={varPath}  {cmndAction} {cmndArgs}""".format(
-        varPath=varPath, cmndAction=cmndAction, cmndArgs=cmndArgs)
-    icm.cmndExampleMenuItem(menuLine, icmWrapper="echo", verbosity='none')
+    # cmndAction = " -i pkgInfoParsSet" ; cmndArgs = ""
+    # varPath = os.path.join(icmsRunEnvBaseDir_obtain(), "var", icmsPkgName_fpObtain(
+    #     icmsPkgInfoBaseDir=icmsPkgInfoBaseDir))
+    # menuLine = """--icmsPkgVarBaseDir={varPath}  {cmndAction} {cmndArgs}""".format(
+    #     varPath=varPath, cmndAction=cmndAction, cmndArgs=cmndArgs)
+    # icm.cmndExampleMenuItem(menuLine, icmWrapper="echo", verbosity='none')
 
-    cmndAction = " -i pkgInfoParsSet" ; cmndArgs = ""
-    tmpPath = os.path.join(icmsRunEnvBaseDir_obtain(), "tmp", icmsPkgName_fpObtain(
-        icmsPkgInfoBaseDir=icmsPkgInfoBaseDir))
-    menuLine = """--icmsPkgTmpBaseDir={tmpPath}  {cmndAction} {cmndArgs}""".format(
-        tmpPath=tmpPath, cmndAction=cmndAction, cmndArgs=cmndArgs)
-    icm.cmndExampleMenuItem(menuLine, icmWrapper="echo", verbosity='none')
+    # cmndAction = " -i pkgInfoParsSet" ; cmndArgs = ""
+    # tmpPath = os.path.join(icmsRunEnvBaseDir_obtain(), "tmp", icmsPkgName_fpObtain(
+    #     icmsPkgInfoBaseDir=icmsPkgInfoBaseDir))
+    # menuLine = """--icmsPkgTmpBaseDir={tmpPath}  {cmndAction} {cmndArgs}""".format(
+    #     tmpPath=tmpPath, cmndAction=cmndAction, cmndArgs=cmndArgs)
+    # icm.cmndExampleMenuItem(menuLine, icmWrapper="echo", verbosity='none')
   
-    icm.cmndExampleMenuChapter(' =RunEnv=  *Run Environment (BaseDirs) Setups/Clean*')    
+    # icm.cmndExampleMenuChapter(' =RunEnv=  *Run Environment (BaseDirs) Setups/Clean*')    
 
-    cmndAction = " -i icmsRunEnvsPreps" ; cmndArgs = ""
-    menuLine = """{cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
-    icm.cmndExampleMenuItem(menuLine, icmWrapper="", verbosity='none')
+    # cmndAction = " -i icmsRunEnvsPreps" ; cmndArgs = ""
+    # menuLine = """{cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
+    # icm.cmndExampleMenuItem(menuLine, icmWrapper="", verbosity='none')
 
-    cmndAction = " -i icmsRunEnvsClean" ; cmndArgs = ""
-    menuLine = """{cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
-    icm.cmndExampleMenuItem(menuLine, icmWrapper="", verbosity='none')
+    # cmndAction = " -i icmsRunEnvsClean" ; cmndArgs = ""
+    # menuLine = """{cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
+    # icm.cmndExampleMenuItem(menuLine, icmWrapper="", verbosity='none')
 
-    icm.cmndExampleMenuChapter(' =RunEnv=  *SymLinks To var/log/tmp/ Setups/Clean*')    
+    # icm.cmndExampleMenuChapter(' =RunEnv=  *SymLinks To var/log/tmp/ Setups/Clean*')    
 
-    cmndAction = " -i icmsRunEnvsLinks" ; cmndArgs = ""
-    menuLine = """{cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
-    icm.cmndExampleMenuItem(menuLine, icmWrapper="", verbosity='none')
+    # cmndAction = " -i icmsRunEnvsLinks" ; cmndArgs = ""
+    # menuLine = """{cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
+    # icm.cmndExampleMenuItem(menuLine, icmWrapper="", verbosity='none')
 
-    cmndAction = " -i icmsRunEnvsLinksClean" ; cmndArgs = ""
-    menuLine = """{cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
-    icm.cmndExampleMenuItem(menuLine, icmWrapper="", verbosity='none')
+    # cmndAction = " -i icmsRunEnvsLinksClean" ; cmndArgs = ""
+    # menuLine = """{cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
+    # icm.cmndExampleMenuItem(menuLine, icmWrapper="", verbosity='none')
 
-    icm.cmndExampleMenuChapter(' =RunEnv=  *SymLinks To Libraries Setups/Clean*')    
+    # icm.cmndExampleMenuChapter(' =RunEnv=  *SymLinks To Libraries Setups/Clean*')    
     
-    cmndAction = " -i icmsLibsLinks" ; cmndArgs = ""
-    menuLine = """{cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
-    icm.cmndExampleMenuItem(menuLine, icmWrapper="", verbosity='none')
+    # cmndAction = " -i icmsLibsLinks" ; cmndArgs = ""
+    # menuLine = """{cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
+    # icm.cmndExampleMenuItem(menuLine, icmWrapper="", verbosity='none')
 
-    cmndAction = " -i icmsLibsLinksClean" ; cmndArgs = ""
-    menuLine = """{cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
-    icm.cmndExampleMenuItem(menuLine, icmWrapper="", verbosity='none')
+    # cmndAction = " -i icmsLibsLinksClean" ; cmndArgs = ""
+    # menuLine = """{cmndAction} {cmndArgs}""".format(cmndAction=cmndAction, cmndArgs=cmndArgs)
+    # icm.cmndExampleMenuItem(menuLine, icmWrapper="", verbosity='none')
      
 
 """
@@ -682,6 +692,9 @@ class pkgInfoParsGet(icm.Cmnd):
         icmsPkgInfoBaseDir = callParamsDict['icmsPkgInfoBaseDir']
 
 ####+END:
+
+        if not icmsPkgInfoBaseDir:
+            icmsPkgInfoBaseDir = marmePkgThis.pkgBase_configDir()
 
         FP_readTreeAtBaseDir_CmndOutput(
             interactive=interactive,
