@@ -89,7 +89,7 @@ G.icmCmndsLibsAppend = __file__
 ####+END:
 
 from bisos.common import serviceObject
-from unisos.marme import marmePkgThis
+# from unisos.marme import marmePkgThis     # Should Delete This Line
 
 
 ####+BEGIN: bx:dblock:python:section :title "Library Description (Overview)"
@@ -667,13 +667,13 @@ def FP_readTreeAtBaseDir_CmndOutput(
     )
 
 
-####+BEGIN: bx:icm:python:cmnd:classHead :modPrefix "new" :cmndName "pkgInfoParsGet" :comment "" :parsMand "" :parsOpt "icmsPkgInfoBaseDir" :argsMin "0" :argsMax "0" :asFunc "" :interactiveP ""
+####+BEGIN: bx:icm:python:cmnd:classHead :modPrefix "new" :cmndName "pkgInfoParsGet" :comment "" :parsMand "icmsPkgInfoBaseDir" :parsOpt "" :argsMin "0" :argsMax "0" :asFunc "" :interactiveP ""
 """
-*  [[elisp:(org-cycle)][| ]]  [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(org-tree-to-indirect-buffer)][|>]] [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || ICM-Cmnd       :: /pkgInfoParsGet/ parsMand= parsOpt=icmsPkgInfoBaseDir argsMin=0 argsMax=0 asFunc= interactive=  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  ICM-Cmnd       :: /pkgInfoParsGet/ parsMand=icmsPkgInfoBaseDir parsOpt= argsMin=0 argsMax=0 asFunc= interactive=  [[elisp:(org-cycle)][| ]]
 """
 class pkgInfoParsGet(icm.Cmnd):
-    cmndParamsMandatory = [ ]
-    cmndParamsOptional = [ 'icmsPkgInfoBaseDir', ]
+    cmndParamsMandatory = [ 'icmsPkgInfoBaseDir', ]
+    cmndParamsOptional = [ ]
     cmndArgsLen = {'Min': 0, 'Max': 0,}
 
     @icm.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
@@ -693,8 +693,8 @@ class pkgInfoParsGet(icm.Cmnd):
 
 ####+END:
 
-        if not icmsPkgInfoBaseDir:
-            icmsPkgInfoBaseDir = marmePkgThis.pkgBase_configDir()
+        #if not icmsPkgInfoBaseDir:
+        #    icmsPkgInfoBaseDir = marmePkgThis.pkgBase_configDir()    # Should Delete This Line
 
         FP_readTreeAtBaseDir_CmndOutput(
             interactive=interactive,
