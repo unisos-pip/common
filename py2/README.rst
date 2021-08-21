@@ -33,14 +33,14 @@ Usage
 
 ::
 
-    from  unisos import icm
+   from  unisos import icm
 
 Installation
 ============
 
 ::
 
-    pip install unisos.common
+   pip install unisos.common
 
 See Also
 ========

@@ -1,0 +1,27 @@
+RefactoringTool: Skipping optional fixer: buffer
+RefactoringTool: Skipping optional fixer: idioms
+RefactoringTool: Skipping optional fixer: set_literal
+RefactoringTool: Skipping optional fixer: ws_comma
+RefactoringTool: Refactored ./common/py3/bin/fileParamManage.py
+RefactoringTool: Files that were modified:
+RefactoringTool: ./common/py3/bin/fileParamManage.py
+--- ./common/py3/bin/fileParamManage.py	(original)
++++ ./common/py3/bin/fileParamManage.py	(refactored)
+@@ -732,7 +732,7 @@
+                              .format(parRoot=parRoot, parName=parName))
+             return(None)
+ 
+-        print(fileParam.parValueGet())
++        print((fileParam.parValueGet()))
+ 
+         return cmndOutcome.set(
+             opError=icm.OpError.Success,
+@@ -829,7 +829,7 @@
+                              .format(parRoot=parRoot))
+             return(None)
+ 
+-        print(fileParam.parValueGet())
++        print((fileParam.parValueGet()))
+ 
+         return cmndOutcome.set(
+             opError=icm.OpError.Success,
