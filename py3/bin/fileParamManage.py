@@ -986,7 +986,8 @@ class fileParamDictReadDeep(icm.Cmnd):
 ####+END:
 
         if interactive == True:
-            results = icm.FILE_paramDictReadDeep(interactive=False, inPathList=effectiveArgsList)
+            #results = icm.FILE_paramDictReadDeep(interactive=False, inPathList=effectiveArgsList)
+            results = icm.FILE_paramDictReadDeep(interactive=True, inPathList=effectiveArgsList)
         else:
             return icm.EH_critical_usageError('None Interactive Is Not Supported')                    
 
